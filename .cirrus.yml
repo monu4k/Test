@@ -1,4 +1,4 @@
-env:
+  env:
   WORKDIR: "/tmp"
   CIRRUS_CLONE_DEPTH: "1"
 
