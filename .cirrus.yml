@@ -58,23 +58,23 @@
 
        - chmod a+rx ~/.bin/repo
   
-  Check-User_script:
-      - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/checks.sh)"
+   Check-User_script:
+       - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/checks.sh)"
 
-  Load-Ccache_background_script:
-     - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/load_ccache.sh)"
+   Load-Ccache_background_script:
+      - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/load_ccache.sh)"
 
-  Sync-rom_script:
-     - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/sync.sh)"
+   Sync-rom_script:
+      - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/sync.sh)"
      
-  Build-rom_script:
-     - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/building.sh)"
+   Build-rom_script:
+      - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/building.sh)"
      
-  Ccache-info_background_script:
-     - set -e
-     - export CCACHE_DIR=$WORKDIR/ccache
-     - ccache -s
+   Ccache-info_background_script:
+      - set -e
+      - export CCACHE_DIR=$WORKDIR/ccache
+      - ccache -s
 
-  Upload-build_script:
-     - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/ziping.sh)"
+   Upload-build_script:
+      - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/ziping.sh)"
 #end
