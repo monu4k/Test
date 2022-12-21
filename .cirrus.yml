@@ -48,18 +48,18 @@
        - cd ~
        - mkdir -p ~/work
 
-      - cd ~/work
+       - cd ~/work
 
-      - mkdir -p ~/.bin
+       - mkdir -p ~/.bin
 
-      - PATH="${HOME}/.bin:${PATH}"
+       - PATH="${HOME}/.bin:${PATH}"
 
-      - curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
+       - curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
 
-      - chmod a+rx ~/.bin/repo
+       - chmod a+rx ~/.bin/repo
   
   Check-User_script:
-     - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/checks.sh)"
+      - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/checks.sh)"
 
   Load-Ccache_background_script:
      - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/load_ccache.sh)"
