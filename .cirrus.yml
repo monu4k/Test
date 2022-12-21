@@ -57,7 +57,6 @@
        - curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
 
        - chmod a+rx ~/.bin/repo
-  
    Check-User_script:
        - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/checks.sh)"
 
