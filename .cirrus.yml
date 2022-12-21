@@ -1,18 +1,31 @@
   env:
+
   WORKDIR: "/tmp"
+
   CIRRUS_CLONE_DEPTH: "1"
 
   task:
-  name: "Admin"
+
+  name: "Admin Builder"
+
   skip: $CIRRUS_BRANCH == 'master'
+
   only_if: $CIRRUS_USER_PERMISSION == 'admin'
+
   stateful: true
+
   timeout_in: 120m
+
   container:
+
     image: ubuntu:22.04
+
     cpu: 8
+
     memory: 32G
+
     
+
   Build-Env-Setup_script:
 
        - export DEBIAN_FRONTEND=noninteractive
@@ -46,9 +59,6 @@
        - sudo bash setup/android_build_env.sh
 
        - cd ~
-       - mkdir -p ~/work
-
-       - cd ~/work
 
        - mkdir -p ~/.bin
 
@@ -56,25 +66,37 @@
 
        - curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
 
-       - chmod a+rx ~/.bin/repo
+        - chmod a+rx ~/.bin/repo
 
-   Check-User_script:
-       - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/checks.sh)"
+  Check-User_script:
 
-   Load-Ccache_background_script:
-      - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/load_ccache.sh)"
+     - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/checks.sh)"
 
-   Sync-rom_script:
-      - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/sync.sh)"
+  Load-Ccache_background_script:
+
+     - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/load_ccache.sh)"
+
+  Sync-rom_script:
+
+     - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/sync.sh)"
+
      
-   Build-rom_script:
-      - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/building.sh)"
-     
-   Ccache-info_background_script:
-      - set -e
-      - export CCACHE_DIR=$WORKDIR/ccache
-      - ccache -s
 
-   Upload-build_script:
-      - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/ziping.sh)"
-#end
+  Build-rom_script:
+
+     - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/building.sh)"
+
+     
+
+  Ccache-info_background_script:
+
+     - set -e
+
+     - export CCACHE_DIR=$WORKDIR/ccache
+
+     - ccache -s
+
+  Upload-build_script:
+
+     - bash -c "$(curl -sL https://raw.githubusercontent.com/monu70152/rom/master/rom/ziping.sh)"
+
